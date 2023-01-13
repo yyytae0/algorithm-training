@@ -11,4 +11,3 @@ for i in range(1, ip + 1):
     l = int(input())
     area = square(l)
     print("#%d %d" % (i, area))
-    
