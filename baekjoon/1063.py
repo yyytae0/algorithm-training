@@ -14,7 +14,7 @@ for i in range(int(ip[2])):
 
     if move == 'R':
         king_x += 1
-        if king_x == stone_x:
+        if king_x == stone_x and king_y == stone_y:
             stone_x += 1
             if stone_x == 9:
                 stone_x -= 1
@@ -25,7 +25,7 @@ for i in range(int(ip[2])):
 
     elif move == 'L':
         king_x -= 1
-        if king_x == stone_x:
+        if king_x == stone_x and king_y == stone_y:
             stone_x -= 1
             if stone_x == 0:
                 stone_x += 1
@@ -36,7 +36,7 @@ for i in range(int(ip[2])):
 
     elif move == 'B':
         king_y -= 1
-        if king_y == stone_y:
+        if king_x == stone_x and king_y == stone_y:
             stone_y -= 1
             if stone_y == 0:
                 stone_y += 1
@@ -47,7 +47,7 @@ for i in range(int(ip[2])):
 
     elif move == 'T':
         king_y += 1
-        if king_y == stone_y:
+        if king_x == stone_x and king_y == stone_y:
             stone_y += 1
             if stone_y == 9:
                 stone_y -= 1
