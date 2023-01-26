@@ -1,19 +1,29 @@
+def check(lst, a):
+    new_lst = lst[:]
+    for i in lst:
+        if (i[0] in a) or (i[1] in a):
+            a = a.union({i[0], i[1]})
+            new_lst.remove(i)
+            a = check(new_lst, a)
+
+    return a
+
+
 ip = int(input())
 n = int(input())
 lst = list()
 
 for i in range(n):
-    lst.append(list(map(int, input().split())))
+    a, b = map(int, input().split())
+    if a < b:
+        lst.append([a, b])
+
+    else:
+        lst.append([b, a])
 
 lst.sort()
 
 a = {1}
+ans = check(lst, a)
 
-for i in range(1, ip+1):
-    for j in lst:
-        if i in j:
-            if (j[0] in a) or (j[1] in a):
-                a.add(j[0])
-                a.add(j[1])
-
-print(len(a)-1)
+print(len(ans)-1)
