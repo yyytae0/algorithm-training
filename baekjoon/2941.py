@@ -10,7 +10,7 @@ while True:
         if idx >= idx_max:
             break
 
-        if ip[idx] == '=' or '-':
+        if ip[idx] == '=' or ip[idx] == '-':
             idx += 1
 
     elif ip[idx] == 'd':
@@ -21,20 +21,18 @@ while True:
 
         if ip[idx] == '-':
             idx += 1
-            if idx >= idx_max:
-                break
 
         elif ip[idx] == 'z':
             idx += 1
+            cnt += 1
             if idx >= idx_max:
                 break
 
             if ip[idx] == '=':
                 idx += 1
-                if idx >= idx_max:
-                    break
+                cnt -= 1
 
-    elif ip[idx] == 'l' or 'n':
+    elif ip[idx] == 'l' or ip[idx] == 'n':
         idx += 1
         cnt += 1
         if idx >= idx_max:
@@ -42,10 +40,8 @@ while True:
 
         if ip[idx] == 'j':
             idx += 1
-            if idx >= idx_max:
-                break
 
-    elif ip[idx] == 's' or 'z':
+    elif ip[idx] == 's' or ip[idx] == 'z':
         idx += 1
         cnt += 1
         if idx >= idx_max:
@@ -53,17 +49,12 @@ while True:
 
         if ip[idx] == '=':
             idx += 1
-            if idx >= idx_max:
-                break
 
     else:
         idx += 1
         cnt += 1
 
-    if idx > idx_max-1:
+    if idx >= idx_max:
         break
-
-    print(cnt)
-
 
 print(cnt)
