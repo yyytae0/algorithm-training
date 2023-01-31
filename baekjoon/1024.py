@@ -1,11 +1,11 @@
 ip = list(map(int, input().split()))
 ans_lst = []
-max = 101
+max_l = 101
+if ip[0] < max_l:
+    if ip[0] > ip[1]:
+        max_l = ip[0]
 
-if ip[1] < max:
-    max = ip[0]
-
-for i in range(ip[1], max):
+for i in range(ip[1], max_l):
     if i % 2 == 1:  # 홀수
         if ip[0] % i == 0:
             for j in range(i):
@@ -20,7 +20,6 @@ for i in range(ip[1], max):
             ans_lst = []
             continue
         break
-
 
     else:  # 짝수
         check = i // 2
@@ -39,7 +38,7 @@ for i in range(ip[1], max):
             continue
         break
 
-if ans_lst == []:
+if len(ans_lst) == 0:
     print('-1')
 
 else:
