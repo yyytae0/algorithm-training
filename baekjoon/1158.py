@@ -9,7 +9,7 @@ while True:
         break
     idx = idx - 1 + ip[1]
     if idx > len(lst):
-        while idx >= len(lst):
+        while idx > len(lst):
             idx = idx - len(lst)
 
 print(f'<{str(ans_lst)[1:-1]}>')

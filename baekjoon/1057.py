@@ -1,16 +1,19 @@
-ip = list(map(int, input().split()))
-cnt_1 = 0
-cnt_2 = 0
+n, J, H = map(int, input().split())
+cnt = 0
 
+while J != H:
+    if J % 2 == 0:
+        J = J/2
 
-for i in range(18):
-    if ip[1] >= 2 ** i:
-        cnt_1 = i
+    elif J % 2 == 1:
+        J = (J+1)/2
 
-    if ip[2] >= 2 ** i:
-        cnt_2 = i
+    if H % 2 == 0:
+        H = H/2
 
-    if (ip[1] <= 2 ** i) and (ip[2] <= 2 ** i):
-        break
+    elif H % 2 == 1:
+        H = (H+1)/2
 
-print(cnt_1, cnt_2)
+    cnt += 1
+
+print(cnt)
