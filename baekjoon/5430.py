@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def work(que, task, n):
     re = 0
     for i in task:
@@ -9,7 +10,7 @@ def work(que, task, n):
 
             elif i == 'D':
                 if n == 0:
-                    return False
+                    return 'error'
                 que.popleft()
                 n = n-1
 
@@ -19,16 +20,16 @@ def work(que, task, n):
 
             elif i == 'D':
                 if n == 0:
-                    return False
+                    return 'error'
                 que.pop()
                 n = n-1
 
     if re == 1:
         que.reverse()
-        return que
+        return str(list(que))
 
     elif re == 0:
-        return que
+        return str(list(que))
 
 
 ip = int(input())
@@ -38,11 +39,21 @@ for i in range(ip):
     n = int(input())
     if n == 0:
         dummy = input()
+        ans = work([], task, 0)
+        if ans != 'error':
+            ans = ans.replace(' ', '')
+            print(ans)
+
+        else:
+            print('error')
         pass
 
     else:
         que = deque(map(int, input()[1:-1].split(',')))
-        print(work(que, task, n))
+        ans = work(que, task, n)
+        if ans != 'error':
+            ans = ans.replace(' ', '')
+            print(ans)
 
-
-
+        else:
+            print('error')

@@ -1,14 +1,4 @@
-def find(n, lst, idx1, idx2):
-    if n < lst[idx2]:
-        idx2 = idx2 // 2
-        find(n, lst, idx1, idx2)
-
-    elif n > lst[idx]:
-        idx1 = idx2
-
-    else:
-        pass
-
+from sys import stdout
 
 
 n = int(input())
@@ -16,13 +6,13 @@ lst_a = list(map(int, input().split()))
 m = int(input())
 lst_check = list(map(int, input().split()))
 lst_a.sort()
+check = dict()
+for i in lst_a:
+    check[i] = 1
 
-s = ''
 for i in lst_check:
-    if i in lst_a:
-        s = s + str(1) + '\n'
+    try:
+        stdout.write(str(check[i]) + '\n')
 
-    else:
-        s = s + str(0) + '\n'
-
-print(s)
+    except KeyError:
+        stdout.write('0\n')
