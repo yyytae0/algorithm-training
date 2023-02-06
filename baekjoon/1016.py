@@ -10,14 +10,14 @@ for i in range(3, ip[1], 2):
 
     lst.append(i**2)
 
-nono = [True]*(ip[1]+1)
-nono[0] = False
-print(lst)
+nono = [True for _ in range(ip[0], ip[1]+1)]
 for i in lst:
     for j in range(max(1, ip[0]//i), ip[1]):
         if i*j > ip[1]:
             break
-        nono[i*j] = False
 
-cnt = nono[ip[0]:ip[1]+1].count(True)
+        elif i*j >= ip[0]:
+            nono[i * j - ip[0]] = False
+
+cnt = nono.count(True)
 print(cnt)
