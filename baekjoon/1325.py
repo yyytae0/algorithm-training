@@ -1,43 +1,46 @@
-def trust(com, dct, trust_lst):
-    if com not in trust_lst:
-        trust_lst.append(com)
-        for i in dct[com]:
-            if i in dct.keys():
-                trust_lst = trust(i, dct, trust_lst)
+from collections import deque
+from sys import stdin
 
-            else:
-                trust_lst.append(i)
+
+def bfs(a):
+    q = deque()
+    q.append(a)
+    visit[a] = 1
+    cnt = 1
+    while q:
+        v = q.popleft()
+        if lst[v]:
+            for i in dct[v]:
+                if not visit[i]:
+                    visit[i] = 1
+                    q.append(i)
+                    cnt += 1
+    return cnt
+
+
+n, m = map(int, stdin.readline().split())
+dct = dict()
+lst = [0 for _ in range(n+1)]
+for _ in range(m):
+    x, y = map(int, stdin.readline().split())
+    if lst[y]:
+        dct[y].append(x)
 
     else:
-        pass
+        dct[y] = [x]
+        lst[y] = 1
 
-    return trust_lst
-
-
-n, m = map(int, input().split())
-hack = dict()
+mx = 0
 ans = list()
-max_com = 0
-com = list()
+for i in dct.keys():
+    visit = [0 for _ in range(n + 1)]
+    dummy = bfs(i)
+    if dummy > mx:
+        mx = dummy
+        ans = [i]
 
-for i in range(m):
-    ip = input().split()
-    if ip[1] in hack.keys():
-        hack[ip[1]].append(ip[0])
+    elif dummy == mx:
+        ans.append(i)
 
-    else:
-        hack[ip[1]] = list(ip[0])
-
-for i in hack.keys():
-    ans = trust(i, hack, ans)
-    if len(ans) > max_com:
-        max_com = len(ans)
-        com = list()
-        com.append(int(i))
-
-    elif len(ans) == max_com:
-        com.append(int(i))
-
-    ans = []
-
-print(*com)
+ans.sort()
+print(*ans)
