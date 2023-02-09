@@ -1,12 +1,14 @@
 n, k = map(int, input().split())
 total = 1
+dv = 1
 
 for i in range(n, 0, -1):
-    total = total * i
     if i <= k:
-        total = total/i
+        pass
+    else:
+        total = total * i
 
     if i <= n-k:
-        total = total/i
+        dv = dv * i
 
-print(int(total % 10007))
+print((total//dv) % 10007)
