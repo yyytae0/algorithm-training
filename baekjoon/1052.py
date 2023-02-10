@@ -42,3 +42,14 @@ else:
                 ans_num = ans_num + 2 ** (len_bn - i - 1)
 
     print(int(ans_num) - n)
+
+# N, K = map(int, input().split())
+#
+# purchased_water_bottle_cnt = 0
+#
+# while bin(N).count('1') > K:
+#     idx = bin(N)[::-1].index('1')
+#     purchased_water_bottle_cnt += 2**idx
+#     N += 2**idx
+#
+# print(purchased_water_bottle_cnt)
