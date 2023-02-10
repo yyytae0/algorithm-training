@@ -8,7 +8,7 @@ def bfs(a):
     while q:
         v = q.popleft()
         for i in [v[0] + u, v[0] - d]:
-            if max(1, min(s - d, g - d)) <= i <= max(s + u + d, g + u + d) and i not in visit.keys():
+            if 1 <= i <= f and i not in visit.keys():
                 q.append([i, v[1]+1])
                 visit[i] = 1
                 if i == g:

@@ -25,3 +25,5 @@ dp = [[-1 for _ in range(n)] for _ in range(n)]
 way = [[0, 1], [1, 0]]
 ans = dfs(0, 0)
 print(ans)
+
+

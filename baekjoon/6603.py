@@ -14,11 +14,13 @@ while True:
     ip = input()
     if ip[0] == '0':
         break
-    k = int(ip[0])
-    lst = list(map(int, ip[1:].split()))
+    lst = list(map(int, ip.split()))
+    k = lst[0]
+    lst = lst[1:]
     ans = []
     dummy = []
     lotto(lst, k, 0, dummy)
     for i in ans:
         print(*i)
     print()
+# 25% 실패
