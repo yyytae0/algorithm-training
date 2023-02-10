@@ -2,8 +2,6 @@ import sys
 
 
 def dfs(a, b):
-    global cnt
-
     if [a, b] == [m - 1, n - 1]:
         return 1
 
