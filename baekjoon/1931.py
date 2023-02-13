@@ -7,7 +7,8 @@ same = list()
 
 for i in range(ip):
     dummy = list(map(int, stdin.readline().split()))
-    if dummy[1] in timetable.keys():
+    key = []
+    if dummy[1] in key:
         if dummy[0] == dummy[1]:
             same.append(dummy[0])
 
@@ -31,9 +32,6 @@ if len(finish) != 0:
     if timetable[dummy] in same:
         cnt += 1
 
-    if dummy in same:
-        cnt += 1
-
     for i in finish:
         if dummy_cnt == 0:
             dummy_cnt = 1
@@ -43,16 +41,17 @@ if len(finish) != 0:
             continue
 
         else:
+            for j in range(dummy, timetable[i]+1):
+                if j in same:
+                    cnt += 1
             dummy = i
-            print(dummy)
-            if dummy in same:
-                cnt += 1
             cnt += 1
+            print(dummy, 1)
 
-    print(cnt)
+    print(cnt, 2)
 
 else:
-    print(len(same))
+    print(len(same), 3)
 
 
 # 반례
