@@ -10,6 +10,7 @@ def play():
     for i in move:
         for j in range(int(i[0])-cnt):  # 현재시간부터 방향전환까지 반복
             cnt += 1
+            print(now)
             now = [now[0] + d[0], now[1] + d[1], now[2]]
             if 1 <= now[0] <= n and 1 <= now[1] <= n and [now[0], now[1]] not in tail:
                 if lst[now[0]][now[1]]:     # 사과먹으면 꼬리 증가
