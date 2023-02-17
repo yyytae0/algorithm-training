@@ -48,6 +48,8 @@ t = 0
 while True:
     t += 1
     melt()
+    for i in lst:
+        print(*i)
     visit = [[0 for _ in range(m)] for _ in range(n)]
     if check():
         print(t)

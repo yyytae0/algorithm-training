@@ -7,6 +7,8 @@ for j in range(2, 5*(10**5)+1):
 
 if n == 1 or n == 2:
     print(2)
+elif n > 98689:
+    print(1003001)
 else:
     for i in range(3, 10 ** 6, 2):
         if prime[i]:
@@ -19,3 +21,4 @@ else:
                 if i >= n:
                     print(i)
                     break
+# 1003001

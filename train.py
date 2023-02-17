@@ -1,3 +1,5 @@
-a = '123456789'
-b = a[::-1]
-print(b)
+def check(n):
+    for i in range(3, int(n**(1/2)), 2):
+        if not n%i:
+            return False
+    return True

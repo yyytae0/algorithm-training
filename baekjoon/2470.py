@@ -7,11 +7,14 @@ target = 10**9
 if lst[s] > 0:
     t = [0, 1]
 elif lst[g] < 0:
-    t = [-1, -2]
+    t = [-2, -1]
 else:
     while True:
         dummy = lst[s] + lst[g]
         if lst[s] > 0 or lst[g] < 0:
+            if abs(dummy) < target:
+                target = abs(dummy)
+                t = [s, g]
             break
         if abs(dummy) < target:
             target = abs(dummy)
@@ -24,5 +27,7 @@ else:
             g = g - 1
         elif dummy < 0:
             s = s + 1
+        if s >= g:
+            break
 
 print(lst[t[0]], lst[t[1]])
