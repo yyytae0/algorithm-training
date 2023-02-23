@@ -1,37 +1,54 @@
+def check():
+    if now[2] == k:
+        return now[0], now[1]
+    if k > now[2] + r - 1:
+        now[1] += r-1
+        now[2] += r-1
+        if now[2] == k:
+            return now[0], now[1]
+    else:
+        for i in range(r - 1):
+            now[1] += 1
+            now[2] += 1
+            if now[2] == k:
+                return now[0], now[1]
+    if k > now[2] + c - 1:
+        now[0] += c-1
+        now[2] += c-1
+        if now[2] == k:
+            return now[0], now[1]
+    else:
+        for i in range(c - 1):
+            now[0] += 1
+            now[2] += 1
+            if now[2] == k:
+                return now[0], now[1]
+    if k > now[2] + r - 1:
+        now[1] -= r-1
+        now[2] += r-1
+        if now[2] == k:
+            return now[0], now[1]
+        for i in range(c - 1):
+            now[0] -= 1
+            now[2] += 1
+            if now[2] == k:
+                return now[0], now[1]
+    else:
+        for i in range(r - 1):
+            now[1] -= 1
+            now[2] += 1
+            if now[2] == k:
+                return now[0], now[1]
+
+
 c, r = map(int, input().split())
 k = int(input())
-
 if k > c*r:
     print(0)
-
 else:
-    dummy = 1
-    total = 0
-    while True:
-        if k > (c-dummy*2+2)*2 + (r-dummy*2+2)*2 - 4:
-            k = k - ((c-dummy*2+2)*2 + (r-dummy*2+2)*2 - 4)
-            total = total + (c-dummy*2+2)*2 + (r-dummy*2+2)*2 - 4
-            dummy += 1
-            pass
-
-        else:
-            break
-
-    now = [dummy, dummy, total + 1]
-    print(dummy)
-    print(now)
-    if k <= now[2] + r - 2*(dummy-1) - 1:
-        now[1] = now[1] + k - now[2]
-
-    elif k < now[2] + r - 2*(dummy-1) - 1 + c - 2*(dummy-1) - 1:
-        now[1] = r - dummy
-        now[0] = now[0] + k - (now[2] + r - 2*(dummy-1) - 1)
-
-    elif k < now[2] + 2*(r - 2*(dummy-1) - 1) + c - 2*(dummy-1) - 1:
-        now[0] = c - dummy
-        now[1] =
-        pass
-
-    else:
-        pass
-
+    now = [1, 1, 1]
+    while k > now[2] + 2 * r + 2 * c - 4:
+        now = [now[0] + 1, now[1] + 1, now[2] + 2 * r + 2 * c - 4]
+        r -= 2
+        c -= 2
+    print(*check())
