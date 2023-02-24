@@ -1,10 +1,4 @@
-left = []
-start = int(input())
-for i in range(10):
-    n = int(input())
-    if n < start:
-        for i in left:
-            if n > i:
-                pass
-        else:
-            left.append(n)
+a = {1, 2, 3}
+b = {2, 3, 4}
+a = a|{2, 5, 6}
+print(a)
