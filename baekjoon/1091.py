@@ -3,15 +3,16 @@ def change():
     a = 1
     for i in range(n):
         new[rule[i]] = now[i]
-        if ans[rule[i]] != now[i]:
-            a = 0
+        if a:
+            if ans[rule[i]] != now[i]:
+                a = 0
     return a, new
 
 
 n = int(input())
 now = list(input().split())
 rule = list(map(int, input().split()))
-dummy = [now]
+dummy = now[:]
 ans = ['0', '1', '2'] * (n//3)
 cnt = 0
 if now == ans:
@@ -21,8 +22,7 @@ else:
     while not a:
         a, now = change()
         cnt += 1
-        if now in dummy:
+        if now == dummy:
             cnt = -1
             break
-        dummy.append(now)
     print(cnt)
