@@ -1,43 +1,33 @@
-from sys import stdin
+from sys import stdin, stdout, setrecursionlimit
 
 
-def check(a, b):
-    if head[a] == head[b]:
-        return 'YES'
-    return 'NO'
+def check(a):
+    if a == head[a]:
+        return a
+    head[a] = check(head[a])
+    return head[a]
 
 
-def add(a, b):
-    if head[b] == b:
-        if head[a] == a:
-            head[b] = a
-        else:
-            head[b] = head[a]
+def union(a, b):
+    a = check(a)
+    b = check(b)
+    if a < b:
+        head[b] = a
     else:
-        if head[a] == a:
-            head[a] = head[b]
-        else:
-            if head[a] < head[b]:
-                now = head[b]
-                d = head[a]
-                for i in s:
-                    if head[i] == now:
-                        head[i] = d
-            else:
-                now = head[a]
-                d = head[b]
-                for i in s:
-                    if head[i] == now:
-                        head[i] = d
+        head[a] = b
 
 
-n, m = map(int, input().split())
-lst = list(list(map(int, stdin.readline().split())) for _ in range(m))
+setrecursionlimit(10**5)
+n, m = map(int, stdin.readline().split())
 head = [i for i in range(n+1)]
-s = set()
-for i in lst:
-    s = s|{i[1], i[2]}
-    if i[0]:
-        print(check(i[1], i[2]))
+for i in range(m):
+    code, n1, n2 = map(int, stdin.readline().split())
+    if code:
+        if check(n1) == check(n2):
+            stdout.write('YES\n')
+        else:
+            stdout.write('NO\n')
     else:
-        add(min(i[1], i[2]), max(i[1], i[2]))
+        union(n1, n2)
+
+# 63% 시간초과
