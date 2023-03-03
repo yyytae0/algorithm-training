@@ -5,17 +5,17 @@ def dijkstra(start):
     q = []
     d = [float('inf') for _ in range(n+1)]
     d[start] = 0
-    heapq.heappush(q, [start, d[start]])
+    heapq.heappush(q, [d[start], start])
     while q:
         v = heapq.heappop(q)
 
-        if d[v[0]] < v[1]:
+        if d[v[1]] < v[0]:
             continue
 
-        for i in dct[v[0]]:
-            nv = [i[0], v[1]+i[1]]
-            if nv[1] < d[nv[0]]:
-                d[nv[0]] = nv[1]
+        for i in dct[v[1]]:
+            nv = [i[1] + v[0], i[0]]
+            if nv[0] < d[nv[1]]:
+                d[nv[1]] = nv[0]
                 heapq.heappush(q, nv)
 
     return d

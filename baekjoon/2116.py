@@ -1,17 +1,31 @@
-from sys import stdin
-
-# def check(lst):
-#     for i in lst[-1]:
-#         if i[0] in dummy or i[1] in dummy:
-#             lst.pop()
-#             check(lst)
+from sys import stdin, setrecursionlimit
 
 
-ip = int(stdin.readline())
-lst = list()
+def check(b, idx):
+    if idx == n:
+        return
 
-for i in range(ip):
-    a, b, c, d, e, f = map(int, stdin.readline().split())
-    lst.append([(a, f), (c, e), (b, d)])
+    global d
+    a = lst[idx].index(b)
+    b = index[a]
+    if 5 <= lst[idx][a] <= 6 and 5 <= lst[idx][b] <= 6:
+        d += 4
+    elif lst[idx][a] == 6 or lst[idx][b] == 6:
+        d += 5
+    else:
+        d += 6
 
-print(lst)
+    check(lst[idx][b], idx+1)
+
+
+setrecursionlimit(10**5)
+index = [5, 3, 4, 1, 2, 0]
+n = int(stdin.readline())
+lst = list(list(map(int, stdin.readline().split())) for _ in range(n))
+ans = 0
+for i in range(1, 7):
+    d = 0
+    check(i, 0)
+    if d > ans:
+        ans = d
+print(ans)

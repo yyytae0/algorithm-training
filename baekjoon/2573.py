@@ -28,30 +28,39 @@ def bfs(a, b):
 
 
 def check():
+    global ans
     cnt = 0
     for i in range(n):
         for j in range(m):
             if lst[i][j] == -1:
                 lst[i][j] = 0
-            elif lst[i][j]:
-                if not visit[i][j]:
-                    bfs(i, j)
-                    cnt += 1
+            elif lst[i][j] and not visit[i][j]:
+                bfs(i, j)
+                cnt += 1
             if cnt >= 2:
                 return True
-    return False
+    if cnt == 1:
+        return False
+    else:
+        ans = 1
+        return False
 
 
 n, m = map(int, input().split())
 lst = list(list(map(int, input().split())) for _ in range(n))
 t = 0
+ans = 0
 while True:
     t += 1
     melt()
-    for i in lst:
-        print(*i)
+    # for i in lst:
+    #     print(*i)
     visit = [[0 for _ in range(m)] for _ in range(n)]
     if check():
         print(t)
         break
+    else:
+        if ans:
+            print(0)
+            break
 
