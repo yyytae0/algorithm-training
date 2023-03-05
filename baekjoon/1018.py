@@ -9,7 +9,6 @@ def check(x, y, lst):
                 change += 1
             idx += 1
         cnt = 1 - cnt
-
     return min(64-change, change)
 
 
