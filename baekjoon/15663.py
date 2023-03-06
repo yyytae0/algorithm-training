@@ -20,5 +20,7 @@ d = []
 visit = [0 for _ in range(n)]
 check(0)
 ans = set(ans)
+ans = list(list(map(int, i.split())) for i in ans)
+ans.sort()
 for i in ans:
-    print(i)
+    print(*i)
