@@ -1,24 +1,9 @@
 n = int(input())
 lst = list(map(int, input().split()))
-t = []
-mx = 0
-dp = [0 for _ in range(n)]
+mx = -1000
+dp = [[-1000 for _ in range(n)] for _ in range(2)]
 for i in range(n):
-    dp[i] = max(dp[i-1]+lst[i], lst[i])
-    if dp[i] > mx:
-        mx = dp[i]
-    if lst[i] < 0:
-        t.append(i)
-print(t)
-dp[-1] = 0
-for i in t:
-    d = lst[i]
-    lst[i] = 0
-    for j in range(i, n):
-        dp[j] = max(dp[j - 1] + lst[j], lst[j])
-        if dp[j] > mx:
-            mx = dp[j]
-            print(j, mx)
-            print(dp)
-    lst[i] = d
+    dp[0][i] = max(dp[0][i-1]+lst[i], lst[i])
+    dp[1][i] = max(dp[0][i-1], dp[1][i-1] + lst[i])
+    mx = max(mx, dp[0][i], dp[1][i])
 print(mx)
