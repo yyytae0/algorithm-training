@@ -2,30 +2,16 @@ a = input()
 b = input()
 na = len(a)
 nb = len(b)
-mx = [0, '']
-dp = [[0, ''] for _ in range(nb)]
-for i in a:
-    d = [0, '']
+dp = [[[0, ''] for _ in range(nb+1)] for _ in range(na+1)]
+for i in range(na):
     for j in range(nb):
-        if dp[j][0] > d[0]:
-            d = [dp[j][0], dp[j][1]]
-        if i == b[j]:
-            if d[0]+1 > dp[j][0]:
-                dp[j] = [d[0]+1, d[1]+i]
-        if dp[j][0] > mx[0]:
-            mx = [dp[j][0], dp[j][1]]
-
-dp = [[0, ''] for _ in range(na)]
-for i in b:
-    d = [0, '']
-    for j in range(na):
-        if dp[j][0] > d[0]:
-            d = [dp[j][0], dp[j][1]]
-        if i == a[j]:
-            if d[0]+1 > dp[j][0]:
-                dp[j] = [d[0]+1, d[1]+i]
-        if dp[j][0] > mx[0]:
-            mx = [dp[j][0], dp[j][1]]
-
-print(mx[0])
-print(mx[1])
+        if a[i] == b[j]:
+            dp[i+1][j+1][0] = dp[i][j][0] + 1
+            dp[i+1][j+1][1] = dp[i][j][1] + a[i]
+        else:
+            if dp[i][j+1][0] > dp[i+1][j][0]:
+                dp[i+1][j+1] = dp[i][j+1][:]
+            else:
+                dp[i + 1][j + 1] = dp[i+1][j][:]
+print(dp[-1][-1][0])
+print(dp[-1][-1][1])
