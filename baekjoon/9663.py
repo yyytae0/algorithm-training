@@ -1,27 +1,33 @@
-def dfs(n):
-    global lstx
-    global lsty
-    global cnt
-    if len(lsty) == n:
-        cnt += 1
+def dfs(a):
+    global ans
+    if a == n-1:
+        ans += 1
         return
-
-    for x in range(lstx[-1], n):
-        if x not in lstx:
-            lstx.append(x)
-
-        for y in range(n):
-            if y not in lsty:
-                print(x, y)
-                lsty.append(y)
-                dfs(n)
-                lsty.pop()
-        lstx.pop()
+    for i in range(n):
+        if not y[i]:
+            if check(a+1, i):
+                y[i] = 1
+                lst[a+1][i] = 1
+                dfs(a+1)
+                lst[a+1][i] = 0
+                y[i] = 0
 
 
-lstx = [0]
-lsty = []
-cnt = 0
-ip = int(input())
-dfs(ip)
-print(cnt)
+def check(a, b):
+    for i in range(1, n):
+        if (0 <= b-i < n and lst[a-i][b-i]) or (0 <= b+i < n and lst[a-i][b+i]):
+            return False
+    return True
+
+
+n = int(input())
+lst = [[0 for _ in range(n)] for _ in range(n)]
+y = [0 for _ in range(n)]
+ans = 0
+for i in range(n):
+    y[i] = 1
+    lst[0][i] = 1
+    dfs(0)
+    y[i] = 0
+    lst[0][i] = 0
+print(ans)
