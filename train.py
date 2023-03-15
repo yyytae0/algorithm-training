@@ -1,1 +1,1 @@
-print(ord('a'))
+print(float('INF'))
