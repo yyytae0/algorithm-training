@@ -9,14 +9,14 @@ while True:
         ans += 1
         lst[now[0]][now[1]] = 2
     for i in range(4):
+        d = (d - 1) % 4
         if lst[now[0]+way[d][0]][now[1]+way[d][1]] == 0:
             now = [now[0]+way[d][0], now[1]+way[d][1]]
             break
-        d = (d + 3) % 4
     else:
         now = [now[0]-way[d][0], now[1]-way[d][1]]
         if lst[now[0]][now[1]] == 1:
             break
 print(ans)
-for i in lst:
-    print(*i)
+# for i in lst:
+#     print(*i)

@@ -1,7 +1,6 @@
-a = {
-    1:1,
-    2:2
-}
-b = list(a.items())
-print(b)
-print(a)
+n, m, k = map(int, input().split())
+lst = [[] for _ in range(n+1)]
+for _ in range(m):
+    a, b, c = map(int, input().split())
+    lst[a].append([b, c])
+    lst[b].append([a, c])
