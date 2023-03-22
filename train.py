@@ -1,4 +1,3 @@
-a = [1, 2]
-b = []
-print(a[1:4])
-print(b)
+dct = dict()
+dct[(1, 2)] = 1
+print(dct.get((2, 2)))

@@ -1,28 +1,18 @@
-from sys import setrecursionlimit
-
-
-def dfs(a, b):
-    if dp[a][b]:
-        return dp[a][b]
-    if a == n-1 and b == m-1:
-        return lst[a][b]
-    for i in way:
-        na, nb = a+i[0], b+i[1]
-        if 0 <= na < n and 0 <= nb < m and not visit[na][nb]:
-            visit[na][nb] = 1
-            dp[a][b] = max(dp[a][b], lst[a][b] + dfs(na, nb))
-            visit[na][nb] = 0
-    return dp[a][b]
-
-
-setrecursionlimit(10**6)
 n, m = map(int, input().split())
 lst = list(list(map(int, input().split())) for _ in range(n))
-visit = [[0 for _ in range(m)] for _ in range(n)]
-way = [[0, 1], [0, -1], [1, 0]]
-dp = [[0 for _ in range(m)] for _ in range(n)]
+for j in range(1, m):
+    lst[0][j] += lst[0][j-1]
 
-print(dfs(0, 0))
-for i in dp:
-    print(*i)
-print(dp[0][0])
+for i in range(1, n):
+    ltor = lst[i][:]
+    rtol = lst[i][:]
+    ltor[0] += lst[i-1][0]
+    rtol[-1] += lst[i-1][-1]
+    for j in range(1, m):
+        ltor[j] += max(ltor[j-1], lst[i-1][j])
+    for j in range(m-2, -1, -1):
+        rtol[j] += max(rtol[j+1], lst[i-1][j])
+
+    for j in range(m):
+        lst[i][j] = max(ltor[j], rtol[j])
+print(lst[-1][-1])
