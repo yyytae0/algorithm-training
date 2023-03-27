@@ -151,7 +151,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="10807.c" />
+    <ClCompile Include="10810.c" />
+    <ClCompile Include="10813.c" />
+    <ClCompile Include="10818.c" />
+    <ClCompile Include="10871.c" />
+    <ClCompile Include="10950.c" />
+    <ClCompile Include="10951.c" />
+    <ClCompile Include="10952.c" />
+    <ClCompile Include="11021.c" />
+    <ClCompile Include="11022.c" />
     <ClCompile Include="11382.c" />
+    <ClCompile Include="1330.c" />
+    <ClCompile Include="14681.c" />
+    <ClCompile Include="15552.c" />
+    <ClCompile Include="2438.c" />
+    <ClCompile Include="2439.c" />
+    <ClCompile Include="2480.c" />
+    <ClCompile Include="2525.c" />
+    <ClCompile Include="25304.c" />
+    <ClCompile Include="25314.c" />
+    <ClCompile Include="2562.c" />
+    <ClCompile Include="2738.c" />
+    <ClCompile Include="2753.c" />
+    <ClCompile Include="2884.c" />
+    <ClCompile Include="5597.c" />
+    <ClCompile Include="8393.c" />
+    <ClCompile Include="9498.c" />
     <ClCompile Include="test.c" />
     <ClCompile Include="train.c" />
   </ItemGroup>
