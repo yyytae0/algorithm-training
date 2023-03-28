@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 
 int main() {
@@ -11,12 +12,4 @@ int main() {
 	printf("%d", sm);
 	return 0;
 }
-
-int count(char *str) {
-	int idx=0;
-	while (str[idx] != 0)
-	{
-		idx++;
-	}
-	return idx;
-}
+*/

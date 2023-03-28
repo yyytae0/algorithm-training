@@ -1,14 +1,12 @@
+/*
 #include <stdio.h>
 
 int main() {
-	int n, d, sm=0;
-	scanf("%d", &n);
-	for (int i = 0; i < n; i++)
-	{
-		scanf("%1d", &d);
-		sm += d;
-	}
-	printf("%d", sm);
+	int n, ans, idx=0;
+	char str[101];
+	scanf("%s", str);
+	ans = count(str);
+	printf("%d", ans);
 	return 0;
 }
 
@@ -20,3 +18,4 @@ int count(char *str) {
 	}
 	return idx;
 }
+*/

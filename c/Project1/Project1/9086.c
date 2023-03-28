@@ -1,15 +1,16 @@
+/*
 #include <stdio.h>
 
 int main() {
-	int n, d, sm=0;
+	int n, d;
+	char str[1001];
 	scanf("%d", &n);
 	for (int i = 0; i < n; i++)
 	{
-		scanf("%1d", &d);
-		sm += d;
+		scanf("%s", str);
+		d = count(str);
+		printf("%c%c\n", str[0], str[d - 1]);
 	}
-	printf("%d", sm);
-	return 0;
 }
 
 int count(char *str) {
@@ -20,3 +21,4 @@ int count(char *str) {
 	}
 	return idx;
 }
+*/
