@@ -180,6 +180,7 @@
     <ClCompile Include="1546.c" />
     <ClCompile Include="15552.c" />
     <ClCompile Include="15894.cpp" />
+    <ClCompile Include="17103.cpp" />
     <ClCompile Include="1934.cpp" />
     <ClCompile Include="19532.cpp" />
     <ClCompile Include="2438.c" />
