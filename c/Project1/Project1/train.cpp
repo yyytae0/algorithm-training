@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 using namespace std;
 long int n, lst[100001], mn = 1000000000;
@@ -43,3 +44,4 @@ int main() {
 	}
 	return 0;
 }
+*/
