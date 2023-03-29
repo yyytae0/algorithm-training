@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 using namespace std;
 int prime[1000001] = {};
@@ -43,3 +44,4 @@ int main() {
 		cout << cnt << endl;
 	}
 }
+*/
