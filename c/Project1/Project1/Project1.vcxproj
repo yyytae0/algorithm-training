@@ -187,6 +187,8 @@
     <ClCompile Include="2438.c" />
     <ClCompile Include="2439.c" />
     <ClCompile Include="2444.cpp" />
+    <ClCompile Include="24444.cpp" />
+    <ClCompile Include="24445.cpp" />
     <ClCompile Include="2480.c" />
     <ClCompile Include="2485.cpp" />
     <ClCompile Include="2501.cpp" />
@@ -211,6 +213,8 @@
     <ClCompile Include="9086.c" />
     <ClCompile Include="9498.c" />
     <ClCompile Include="9506.cpp" />
+    <ClCompile Include="swea_14037.cpp" />
+    <ClCompile Include="swea_14069.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="train.c" />
     <ClCompile Include="train.cpp" />

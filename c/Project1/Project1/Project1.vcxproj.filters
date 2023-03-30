@@ -204,5 +204,17 @@
     <ClCompile Include="13909.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="swea_14069.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="swea_14037.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="24444.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="24445.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
