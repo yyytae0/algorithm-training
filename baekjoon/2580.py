@@ -4,14 +4,13 @@ def check(a):
 
     for i in chk:
         for j in range(1, 10):
-            sq = (i[0]//3)*3+(i[1]//3)
-            if crow[i[0]][j] and ccol[i[1]][j] and ccro[sq][j]:
-                crow[i[0]][j], ccol[i[1]][j], ccro[sq][j] = 0, 0, 0
+            if crow[i[0]][j] and ccol[i[1]][j] and ccro[(i[0]//3)*3+(i[1]//3)][j]:
+                crow[i[0]][j] = ccol[i[1]][j] = ccro[(i[0]//3)*3+(i[1]//3)][j] = 0
                 lst[i[0]][i[1]] = j
                 if check(a+1):
                     return True
                 lst[i[0]][i[1]] = 0
-                crow[i[0]][j], ccol[i[1]][j], ccro[sq][j] = 1, 1, 1
+                crow[i[0]][j] = ccol[i[1]][j] = ccro[(i[0] // 3) * 3 + (i[1] // 3)][j] = 1
     return False
 
 
