@@ -1,26 +1,32 @@
-from sys import setrecursionlimit
+from collections import deque
 
 
-def dfs(now, s, energy):
-    global ans
-    if now == n-1:
-        if energy < ans:
-            ans = energy
-        return
-    ns = (s+1) % 3
-    for i in range(now+1, n):
-        if a[i] == step[ns]:
-            dfs(i, ns, energy+(i-now)**2)
+def bfs():
+    q = deque()
+    q.append([0, 0])
+    while q:
+        v = q.popleft()
+        idx = (v[1]+1) % 3
+        for i in range(v[0]+1, n):
+            if a[i] == step[idx]:
+                d = dp[v[0]] + (i - v[0]) ** 2
+                if dp[i] == 0:
+                    dp[i] = d
+                    q.append([i, idx])
+                else:
+                    if d < dp[i]:
+                        dp[i] = d
+                        q.append([i, idx])
+
+    return dp[n-1]
 
 
-setrecursionlimit(10**6)
 n = int(input())
 a = input()
 step = ['B', 'O', 'J']
-dct = {'B': 0, 'O': 1, 'J': 2}
-ans = 10**6
-dfs(0, dct[a[0]], 0)
-if ans == 10**6:
+dp = [0 for _ in range(n)]
+ans = bfs()
+if ans == 0:
     print(-1)
 else:
     print(ans)

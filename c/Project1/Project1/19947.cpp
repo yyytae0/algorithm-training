@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <deque>
 //const int mx = 100001;
@@ -21,7 +22,6 @@ int main() {
 			if (i+j < y+1)
 			{
 				int d = dp[i] + (dp[i] * money[j]) / 100;
-				cout << d << endl;
 				if (d > dp[i + j])
 				{
 					dp[i + j] = d;
@@ -32,3 +32,4 @@ int main() {
 	cout << dp[y];
 	return 0;
 }
+*/
