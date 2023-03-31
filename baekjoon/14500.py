@@ -20,7 +20,7 @@ def check(a, b):
                   lst[a][b+1] + lst[a+1][b+1] + lst[a+1][b] + lst[a+2][b],
                   ans)
     if b+3 <= m and a+2 <= n:
-        ans = max(lst[a][b] + lst[a+1][b] + lst[a+1][b+1] + lst[a+1][b+1],
+        ans = max(lst[a][b] + lst[a+1][b] + lst[a+1][b+1] + lst[a+1][b+2],
                   lst[a][b] + lst[a][b+1] + lst[a][b+2] + lst[a+1][b+2],
                   lst[a][b] + lst[a+1][b] + lst[a][b+1] + lst[a][b+2],
                   lst[a+1][b] + lst[a+1][b+1] + lst[a+1][b+2] + lst[a][b+2],
