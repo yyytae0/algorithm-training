@@ -1,36 +1,43 @@
-def dfs(a, b):
-    if a == n-1 and b == n-1:
-        return lst[a][b]
+def check(a):
+    global flag
+    if a == 81:
+        flag = 1
+        return True
 
-    if dp[a][b] > -1:
-        return dp[a][b]
+    y = a//9
+    x = a % 9
+    if lst[y][x] != 0:
+        return check(a+1)
 
-    for i in dp:
-        print(*i)
-
-    for i in way:
-        na = a+i[0]
-        nb = b+i[1]
-        if 0 <= na < n and 0 <= nb < n and not visit[na][nb]:
-            visit[na][nb] = 1
-            if dp[a][b] != -1:
-                dp[a][b] = min(dp[a][b], dfs(na, nb) + lst[a][b])
-            else:
-                dp[a][b] = dfs(na, nb) + lst[a][b]
-            visit[na][nb] = 0
-    return dp[a][b]
+    for j in range(1, 10):
+        if crow[y][j] and ccol[x][j] and ccro[(y // 3) * 3 + (x // 3)][j]:
+            crow[y][j] = ccol[x][j] = ccro[(y // 3) * 3 + (x // 3)][j] = 0
+            if check(a + 1):
+                return True
+            crow[y][j] = ccol[x][j] = ccro[(y // 3) * 3 + (x // 3)][j] = 1
+    return False
 
 
-ip = int(input())
-way = [[1, 0], [-1, 0], [0, 1], [0, -1]]
-for case in range(1, ip+1):
-    n = int(input())
-    lst = list(list(map(int, input())) for _ in range(n))
-    dp = [[-1 for _ in range(n)] for _ in range(n)]
-    visit = [[0 for _ in range(n)] for _ in range(n)]
-    dp[n-1][n-1] = 0
-    visit[0][0] = 1
-    dfs(0, 0)
-    for i in dp:
-        print(*i)
-    print(dp[0][0])
+ccro = [[1 for _ in range(10)] for _ in range(10)]
+crow = [[1 for _ in range(10)] for _ in range(10)]
+ccol = [[1 for _ in range(10)] for _ in range(10)]
+lst = [[0 for _ in range(9)] for _ in range(9)]
+ans = -1
+for i in range(1, 82):
+    a, b, c = map(int, input().split())
+    sq = (a-1)//3*3 + (b-1)//3
+    flag = 0
+    if ans > 0:
+        continue
+    if not crow[a][c] or not ccol[b][c] or not ccro[sq][c]:
+        ans = i
+        continue
+    crow[a][c] = 0
+    ccol[b][c] = 0
+    ccro[sq][c] = 0
+    lst[a-1][b-1] = c
+    if i > 20:
+        check(0)
+        if flag:
+            ans = i
+print(ans)

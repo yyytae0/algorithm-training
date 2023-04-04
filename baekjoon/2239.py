@@ -14,7 +14,7 @@ def check(a):
     return False
 
 
-lst = list(list(map(int, input().split())) for _ in range(9))
+lst = list(list(map(int, input())) for _ in range(9))
 chk = []
 crow = [[1 for _ in range(10)] for _ in range(9)]
 ccol = [[1 for _ in range(10)] for _ in range(9)]
@@ -31,4 +31,6 @@ for i in range(9):
             ccro[(i//3)*3+(j//3)][lst[i][j]] = 0
 check(0)
 for i in lst:
-    print(*i)
+    for j in i:
+        print(j, end='')
+    print()
