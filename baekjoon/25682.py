@@ -1,10 +1,5 @@
-from sys import stdin
-
-
 def check():
-    global cnt, n, m, k, s
     answer = 4000000
-    ans = 0
     for i in range(n-k+1):
         for j in range(m-k+1):
             if i == 0 and j == 0:
@@ -18,19 +13,16 @@ def check():
 
             else:
                 ans = cnt[k+i-1][k+j-1] - cnt[k+i-1][j-1] - cnt[i-1][k+j-1] + cnt[i-1][j-1]
-
-        if answer > min(ans, k**2 - ans):
-            answer = min(ans, k**2 - ans)
-
+            answer = min(ans, k**2 - ans, answer)
     return answer
 
 
-n, m, k = map(int, stdin.readline().split())
+n, m, k = map(int, input().split())
 lst = list()
 for i in range(n):
-    lst.append(stdin.readline().strip())
+    lst.append(input())
 
-c = {1:'W', 0:'B'}
+c = ['W', 'B']
 s1 = ''
 s2 = ''
 dummy = 0
@@ -55,4 +47,5 @@ for i in range(n):
             cnt[i][j] = y + cnt[i-1][j]
         else:
             cnt[i][j] = y + cnt[i-1][j] + cnt[i][j-1] - cnt[i-1][j-1]
+
 print(check())
