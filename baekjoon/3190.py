@@ -10,7 +10,6 @@ def play():
     for i in move:
         for j in range(int(i[0])-cnt):  # 현재시간부터 방향전환까지 반복
             cnt += 1
-            print(now)
             now = [now[0] + d[0], now[1] + d[1], now[2]]
             if 1 <= now[0] <= n and 1 <= now[1] <= n and [now[0], now[1]] not in tail:
                 if lst[now[0]][now[1]]:     # 사과먹으면 꼬리 증가
@@ -27,31 +26,11 @@ def play():
         # 방향 전환
 
         if i[1] == 'D':
-            if now[2] == 0:
-                d = [1, 0]
-                now[2] = 1
-            elif now[2] == 1:
-                d = [0, -1]
-                now[2] = 2
-            elif now[2] == 2:
-                d = [-1, 0]
-                now[2] = 3
-            elif now[2] == 3:
-                d = [1, 0]
-                now[2] = 0
+            now[2] = (now[2]+1) % 4
+            d = way[now[2]]
         elif i[1] == 'L':
-            if now[2] == 0:
-                d = [-1, 0]
-                now[2] = 3
-            elif now[2] == 1:
-                d = [0, 1]
-                now[2] = 0
-            elif now[2] == 2:
-                d = [1, 0]
-                now[2] = 1
-            elif now[2] == 3:
-                d = [0, -1]
-                now[2] = 2
+            now[2] = (now[2]-1) % 4
+            d = way[now[2]]
 
     # 방향 전환이 끝나고 계속 직진하는 경우
 
@@ -71,6 +50,7 @@ def play():
             return cnt
 
 
+way = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 n = int(input())
 k = int(input())
 lst = [[0 for _ in range(n+1)] for _ in range(n+1)]
