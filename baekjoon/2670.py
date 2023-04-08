@@ -7,4 +7,14 @@ for i in range(1, n+1):
     dp[i] = max(dp[i-1]*a, a)
     if dp[i] > mx:
         mx = dp[i]
+print(mx)
+mx = round(mx, 3)
 print(f'{mx:.3f}')
+
+# 4
+# 6.1
+# 4.3
+# 0.5
+# 6.1
+
+# 80.002
