@@ -14,8 +14,8 @@ n, m, k = map(int, input().split())
 if not k:
     ans = check(n, m)
 else:
-    n1 = k//m + 1
-    m1 = k%m
+    n1 = (k-1)//m + 1
+    m1 = (k-1) % m + 1
     n2 = n - n1 + 1
     m2 = m - m1 + 1
     ans = check(n1, m1) * check(n2, m2)

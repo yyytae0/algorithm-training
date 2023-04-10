@@ -8,7 +8,10 @@ def check(i):
             e = mid-1
         else:
             s = mid+1
-    ans += (s+e)//2 + 1
+    if i <= b[s]:
+        ans += s
+    else:
+        ans += s+1
 
 
 ip = int(input())
