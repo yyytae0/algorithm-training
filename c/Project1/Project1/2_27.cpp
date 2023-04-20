@@ -1,3 +1,4 @@
+/*
 #include <string>
 #include <vector>
 
@@ -14,3 +15,4 @@ int solution(int n) {
 	}
 	return answer;
 }
+*/

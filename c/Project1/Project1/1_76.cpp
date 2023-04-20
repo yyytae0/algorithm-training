@@ -1,3 +1,4 @@
+/*
 #include <string>
 #include <vector>
 using namespace std;
@@ -19,3 +20,4 @@ int solution(int n, int m, vector<int> section) {
 	}
 	return answer;
 }
+*/

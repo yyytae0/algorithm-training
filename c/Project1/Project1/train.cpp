@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int solution(int n) {
+int solution(vector<int> people, int limit) {
 	int answer = 0;
 	return answer;
 }

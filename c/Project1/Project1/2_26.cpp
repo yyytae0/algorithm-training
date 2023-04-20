@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <string>
 #include <vector>
@@ -41,3 +42,4 @@ string change(string s) {
 	}
 	return "1" + ns;
 }
+*/

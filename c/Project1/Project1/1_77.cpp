@@ -1,3 +1,4 @@
+/*
 #include <string>
 #include <vector>
 
@@ -23,3 +24,4 @@ vector<int> solution(vector<string> name, vector<int> yearning, vector<vector<st
 	}
 	return answer;
 }
+*/

@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include<vector>
 #include<algorithm>
@@ -14,3 +15,4 @@ int solution(vector<int> A, vector<int> B)
 	}
 	return answer;
 }
+*/

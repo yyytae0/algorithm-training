@@ -1,3 +1,4 @@
+/*
 #include <string>
 #include <vector>
 #include <cctype>
@@ -30,3 +31,4 @@ string solution(string s) {
 	}
 	return answer;
 }
+*/

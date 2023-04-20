@@ -225,6 +225,9 @@
     <ClCompile Include="2_25.cpp" />
     <ClCompile Include="2_26.cpp" />
     <ClCompile Include="2_27.cpp" />
+    <ClCompile Include="2_28.cpp" />
+    <ClCompile Include="2_29.cpp" />
+    <ClCompile Include="2_31.cpp" />
     <ClCompile Include="3055.cpp" />
     <ClCompile Include="3187.cpp" />
     <ClCompile Include="4344.cpp" />
@@ -243,6 +246,7 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="train.c" />
     <ClCompile Include="train.cpp" />
+    <ClCompile Include="trie.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,4 @@
+/*
 #include<string>
 #include <iostream>
 #include <deque>
@@ -27,3 +28,4 @@ bool solution(string s)
 	}
 	return false;
 }
+*/
