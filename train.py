@@ -1,40 +1,24 @@
-def dfs(n):
-    if n == 36:
-        return 1
-    y = n//6
-    x = n % 6
-    if x == y or score[x][y] >= 0:
-        return dfs(n+1)
+def dfs(t, x, y):
+    if t == nt:
+        dp[y][x] = 1
+        return dp[y][x]
 
-    for i in [0, 1, 2]:
-        if lst[y*3+i] and lst[x*3+2-i]:
-            lst[y*3+i] -= 1
-            lst[x*3+2-i] -= 1
-            score[y][x] = i
-            score[x][y] = 2-i
-            if dfs(n+1):
-                return 1
-            score[y][x] = -1
-            score[x][y] = -1
-            lst[y*3+i] += 1
-            lst[x*3+2-i] += 1
-    return 0
+    if dp[y][x]:
+        return dp[y][x]
+
+    for i in range(x+1, n+1):
+        if lst[y][i-1] == target[t]:
+            dp[y][x] += dfs(t+1, i, 1-y)
+    return dp[y][x]
 
 
-def check():
-    for i in range(6):
-        sm = 0
-        for j in range(3):
-            sm += lst[3*i+j]
-        if sm != 5:
-            return 0
-    return 1
-
-
-for case in range(4):
-    lst = list(map(int, input().split()))
-    score = [[-1 for _ in range(6)] for _ in range(6)]
-    if check():
-        print(dfs(0), end=' ')
-    else:
-        print(0, end=' ')
+target = list(input())
+nt = len(target)
+lst = list(list(input()) for _ in range(2))
+n = len(lst[0])
+dp = [[0 for _ in range(n+1)] for _ in range(2)]
+dfs(0, 0, 0)
+dfs(0, 0, 1)
+for i in dp:
+    print(*i)
+print(dp[0][0]+dp[1][0])
