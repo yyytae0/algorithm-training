@@ -2,12 +2,14 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+string ntobi(int);
+int check(string);
 
 int solution(int n) {
 	int answer = 0;
 	string s;
 	s = ntobi(n);
-	return answer;
+	return s;
 }
 
 string ntobi(int n) {
@@ -43,10 +45,22 @@ int check(string s) {
 	}
 	if (cnt0 == 0 || (cnt0 == 1 && idx0+1 == s.length()))
 	{
-		// 1011111...
-	}
-	else if (true)
-	{
+		string ans = "10";
+		for (int i = 0; i < cnt1-1; i++)
+		{
+			ans += "1";
+		}
 
+	}
+	else{
+		s.replace(idx0, 2, "10");
+	}
+}
+
+int ston(string s) {
+	int now = 1, ans = 0;
+	for (int i = s.length-1; i >= 0; i++)
+	{
+		
 	}
 }
