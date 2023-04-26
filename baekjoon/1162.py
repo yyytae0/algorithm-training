@@ -3,32 +3,29 @@ import heapq
 
 def dijkstra():
     q = []
-    d = [[float('inf') for _ in range(n+1)] for _ in range(k+1)]
-    d[1][0] = 0
-    heapq.heappush(q, [d[1][0], 1, 0])
+    d = [[float('inf') for _ in range(k+1)] for _ in range(n+1)]
+    d[1] = [0 for _ in range(k+1)]
+    heapq.heappush(q, [0, 1, 0])
     while q:
-        v = heapq.heappop(q)
-        if v[0] > d[v[2]][v[1]]:
+        dist, now, cover = heapq.heappop(q)
+        if dist > d[now][cover]:
             continue
-        for i in lst[v[1]]:
-            dummy = lst[v[1]][i]
-            if d[v[2]][i] > dummy+v[0]:
-                d[v[2]][i] = dummy+v[0]
-                heapq.heappush(q, [d[v[2]][i], i, v[2]])
-            if v[2] < k:
-                if d[v[2]+1][i] > v[0]:
-                    d[v[2]+1][i] = v[0]
-                    heapq.heappush(q, [d[v[2]+1][i], i, v[2]+1])
-    mn = d[-1][-1]
-    for i in d:
-        mn = min(mn, i[-1])
-    print(mn)
+        for i, j in lst[now]:
+            dummy = j
+            if d[i][cover] > dummy+dist:
+                d[i][cover] = dummy+dist
+                heapq.heappush(q, [d[i][cover], i, cover])
+            if cover < k:
+                if d[i][cover+1] > dist:
+                    d[i][cover+1] = dist
+                    heapq.heappush(q, [d[i][cover+1], i, cover+1])
+    print(min(d[n]))
 
 
 n, m, k = map(int, input().split())
-lst = [{} for _ in range(n+1)]
+lst = [[] for _ in range(n+1)]
 for i in range(m):
     a, b, c = map(int, input().split())
-    lst[b][a] = c
-    lst[a][b] = c
+    lst[b].append([a, c])
+    lst[a].append([b, c])
 dijkstra()
