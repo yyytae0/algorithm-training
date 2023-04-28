@@ -27,10 +27,11 @@ def check(a, b, cnt):
         for i in way:
             nv = [v[0]+i[0], v[1]+i[1], v[2]+1]
             if 0 <= nv[0] < n and 0 <= nv[1] < n and not vi[nv[0]][nv[1]]:
-                vi[nv[0]][nv[1]] = 1
                 if not lst[nv[0]][nv[1]]:
+                    vi[nv[0]][nv[1]] = 1
                     q.append(nv)
                 elif lst[nv[0]][nv[1]] == cnt:
+                    vi[nv[0]][nv[1]] = 1
                     nv[2] = 0
                     q.append(nv)
                 elif nv[2] < mx:
