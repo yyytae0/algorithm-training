@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -9,7 +10,7 @@ int solution(int n) {
 	int answer = 0;
 	string s;
 	s = ntobi(n);
-	return s;
+	return check(s);
 }
 
 string ntobi(int n) {
@@ -29,8 +30,9 @@ string ntobi(int n) {
 }
 
 int check(string s) {
-	int cnt1 = 0, cnt0 = 0, idx = 0, idx0 = 0;;
-	for (auto i:s)
+	int cnt1 = 0, cnt0 = 0, idx = 0, idx0 = 0, d = 0;
+	cout << s << endl;
+	for (auto i : s)
 	{
 		if (i == '1')
 		{
@@ -39,28 +41,38 @@ int check(string s) {
 		else
 		{
 			cnt0++;
+			d = idx0;
 			idx0 = idx;
 		}
 		idx++;
 	}
-	if (cnt0 == 0 || (cnt0 == 1 && idx0+1 == s.length()))
+	if (cnt0 == 0 || (cnt0 == 1 && idx0 + 1 == s.length()))
 	{
 		string ans = "10";
-		for (int i = 0; i < cnt1-1; i++)
+		for (int i = 0; i < cnt1 - 1; i++)
 		{
 			ans += "1";
 		}
-
 	}
-	else{
+	else if(idx0 + 1 == s.length()) {
+		s.replace(d, 2, "10");
+	}
+	else {
 		s.replace(idx0, 2, "10");
 	}
+	int now = 1, ans = 0;
+	cout << s.length() << endl;
+	cout << s << endl;
+	for (int i = s.length() - 1; i >= 0; i--)
+	{
+		cout << s[i];
+		// int n = stoi(dummy) * now;
+		now *= 2;
+		// ans += num;
+	}
+	return ans;
 }
 
-int ston(string s) {
-	int now = 1, ans = 0;
-	for (int i = s.length-1; i >= 0; i++)
-	{
-		
-	}
+int main() {
+	cout << endl << solution(78);
 }
