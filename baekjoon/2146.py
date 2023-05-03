@@ -42,7 +42,7 @@ way = [[1, 0], [-1, 0], [0, 1], [0, -1]]
 n = int(input())
 lst = list(list(map(int, input().split())) for _ in range(n))
 visit = [[0 for _ in range(n)] for _ in range(n)]
-cnt = 0
+cnt = 1
 islands = []
 for i in range(n):
     for j in range(n):
