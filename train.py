@@ -1,17 +1,16 @@
-n = int(input())
-lst = list(map(int, input().split()))
-stack = []
-ans = [0 for _ in range(n)]
-for i in range(n):
-    d = lst[i]
-    while stack:
-        t = stack.pop()
-        if t[0] >= d:
-            ans[i] = t[1]+1
-            stack.append(t)
-            stack.append([d, i])
-            break
-    else:
-        stack.append([d, i])
+from sys import stdin, stdout
+import heapq
 
-print(*ans)
+
+n = int(stdin.readline())
+heap = []
+cnt = 0
+for i in range(n):
+    cnt += 1
+    a = int(stdin.readline())
+    heapq.heappush(heap, a)
+    print(heap)
+    if cnt % 2:
+        stdout.write(str(heap[cnt//2]) + '\n')
+    else:
+        stdout.write(str(heap[cnt//2-1]) + '\n')
