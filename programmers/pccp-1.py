@@ -34,6 +34,11 @@ def check(a, b, dp, n, m):
         chk2[i] = dp[a][m-1][i] - dp[a][b][i]
         chk3[i] = dp[n-1][b][i] - dp[a][b][i]
         chk4[i] = dp[n-1][m-1][i] - dp[a][m-1][i] - dp[n-1][b][i] + dp[a][b][i]
+    if a == 4 and b == 4:
+        print(chk1)
+        print(chk2)
+        print(chk3)
+        print(chk4)
     sm1 = sum(chk1)
     sm2 = sum(chk2)
     sm3 = sum(chk3)
@@ -42,9 +47,9 @@ def check(a, b, dp, n, m):
     mn = 10**4
     for i in range(26):
         for j in range(26):
-            if i != j and mn > chk1[i]+chk2[j]:
+            if i != j:
                 for k in range(26):
-                    if i != k and mn > chk1[i]+chk2[j]+chk3[k]:
+                    if i != k:
                         for l in range(26):
                             if j != l and k != l:
                                 d = total - chk1[i] - chk2[j] - chk3[k] - chk4[l]
@@ -53,4 +58,15 @@ def check(a, b, dp, n, m):
 
 
 a = ['AAAAAAAAAAA', 'AAAAAAAAAAA', 'AAAAAAAAAAA', 'AAAAAAAAAAA','AAAAAAAAAAA', 'AAAAAAAAAAA', 'AAAAAAAAAAA', 'AAAAAAAAAAA', 'AAAAAAAAAAA', 'AAAAAAAAAAA']
-solution(a)
+b = ['BBBBBAAAAAA',
+     'BBBBBAAAAAA',
+     'BBBBBAAAAAA',
+     'BBBBBAAAAAA',
+     'BBBBBAAAAAA',
+     'AAAAABBBBBB',
+     'AAAAABBBBBB',
+     'AAAAABBBBBB',
+     'AAAAABBBBBB',
+     'AAAAABBBBBB']
+# solution(a)
+solution(b)
