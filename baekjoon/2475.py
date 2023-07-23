@@ -1,8 +1,8 @@
-lst = list(input().split())
+lst = list(map(int, input().split()))
 
 a = 0
 
 for i in lst:
-  a = a + int(i)**2
+    a = a + int(i)**2
 
-print(int(a/10))
+print(int(a) % 10)
