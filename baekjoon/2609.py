@@ -1,8 +1,10 @@
 a, b = map(int, input().split())
-
+na, nb = a, b
+if na < nb:
+    na, nb = nb, na
 while True:
-    if a < b:
-        a, b = b, a
-
-    a, b = b, a // b
-
+    na, nb = nb, na % nb
+    if nb == 0:
+        break
+print(na)
+print(na*(a//na)*(b//na))
